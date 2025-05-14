@@ -127,7 +127,7 @@ const App = () => {
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
           Bienvenido a <span className="text-yellow-400">NextLevel Padel</span> {/* Usando yellow-400 */}
         </h1>
-        <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto bg-black  bg-opacity-70 rounded-lg ">
           La plataforma digital que organiza, motiva y conecta a la comunidad de jugadores de pádel en Bahía Blanca. ¡Lleva tu juego al siguiente nivel!
         </p>
         <a
