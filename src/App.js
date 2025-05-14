@@ -4,9 +4,12 @@ import ImgComunidad from './assets/comunidad.webp';
 import PuntosFondo from './assets/PuntosFondo.jpg'; // <<--- 1. IMPORTA TU IMAGEN AQUÍ
 import Logo from './assets/Logo.png';
 
-
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Importa los estilos del carrusel
 
 import Competitivo from './assets/Competitivo.jpg';
+import ImagenPadel2 from './assets/PuntosFondo.jpg';
+import ImagenPadel3 from './assets/comunidad.webp';
 import {
   ShieldCheck, Users, Trophy, ListChecks, TrendingUp, UserPlus, Zap, DollarSign,
   CalendarDays, Info, PlayCircle, CheckCircle, ArrowRightCircle, BarChart3,
@@ -112,12 +115,15 @@ const App = () => {
   );
 
   const Hero = () => (
-    <section id="home" className="bg-gradient-to-br from-sky-600 to-blue-700 text-white py-20 md:py-32 min-h-screen flex flex-col justify-center items-center">
-      <div className="container mx-auto text-center px-4">
+    <section id="home" className=" text-white py-20 md:py-32 min-h-screen flex flex-col justify-center items-center  " style={{ backgroundImage: `url(${PuntosFondo})` }}>
+      <div className=' bg-white
+       rounded-lg bg-opacity-20 h-full'>
+      <div className="container mx-auto text-center px-4 pad  ">
         <img
           src={Logo}// Usando amber-400 para el color de texto
           alt="Logo NextLevel Padel"
           className="mx-auto mb-8 md:w-40 md:h-45 " // Usando yellow-400
+          
         />
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
           Bienvenido a <span className="text-yellow-400">NextLevel Padel</span> {/* Usando yellow-400 */}
@@ -132,43 +138,100 @@ const App = () => {
           Regístrate y Compite
         </a>
       </div>
+       </div>
     </section>
   );
 
-  const About = () => (
-    <section id="que-es" className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4">
-        <SectionTitle>¿Qué es NextLevel Padel?</SectionTitle>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <img
-              src={Competitivo} 
-              alt="Jugadores de Padel Conectados"
-              className="rounded-xl shadow-xl w-full"
-              onError={(e) => {e.target.onerror = null; e.target.src='https://placehold.co/600x400/E0F2FE/0284C7?text=Imagen+Padel'}}
-            />
-          </div>
-          <div className="text-lg text-gray-700 space-y-4">
-            <p>
-              NextLevel Padel nace para transformar la experiencia del pádel amateur en Bahía Blanca. Entendemos la pasión por este deporte y la necesidad de una estructura que permita a los jugadores competir, mejorar y conectarse.
-            </p>
-            <p className="font-semibold text-sky-700">
-              Nuestro objetivo es claro:
-            </p>
-            <ul className="list-none space-y-2">
-              <li className="flex items-start"><CheckCircle size={24} className="inline-block mr-2 text-yellow-500 flex-shrink-0 mt-1" /><span>Ofrecer un sistema de <span className="font-bold">ranking oficial y transparente</span> desde 1ra hasta 7ma categoría.</span></li>
-              <li className="flex items-start"><CheckCircle size={24} className="inline-block mr-2 text-yellow-500 flex-shrink-0 mt-1" /><span>Facilitar <span className="font-bold">partidos competitivos y equilibrados</span> con jugadores de tu mismo nivel.</span></li>
-              <li className="flex items-start"><CheckCircle size={24} className="inline-block mr-2 text-yellow-500 flex-shrink-0 mt-1" /><span>Brindar <span className="font-bold">flexibilidad total</span> para que organices tus partidos cuándo y dónde prefieras.</span></li>
-              <li className="flex items-start"><CheckCircle size={24} className="inline-block mr-2 text-yellow-500 flex-shrink-0 mt-1" /><span>Crear una <span className="font-bold">comunidad activa y motivada</span> de apasionados por el pádel.</span></li>
-            </ul>
-            <p>
-              Olvídate de la desorganización. Con NextLevel Padel, cada partido cuenta y tu progreso es visible.
-            </p>
+  const About = () => {
+    // Define un array de tus imágenes
+    const images = [
+      {
+        src: Competitivo,
+        alt: "Jugadores de Padel Conectados - Vista 1",
+        legend: "Competición y Conexión" // Leyenda opcional para cada imagen
+      },
+      {
+        src: ImagenPadel2, // Reemplaza con la ruta a tu segunda imagen
+        alt: "Jugadores de Padel Disfrutando - Vista 2",
+        legend: "Partidos Equilibrados"
+      },
+      {
+        src: ImagenPadel3, // Reemplaza con la ruta a tu tercera imagen
+        alt: "Comunidad de Padel - Vista 3",
+        legend: "Comunidad Activa"
+      },
+      // Puedes añadir más imágenes aquí
+    ];
+  
+    return (
+      <section id="que-es" className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <SectionTitle>¿Qué es NextLevel Padel?</SectionTitle>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+            <Carousel
+          showArrows={true}
+          showThumbs={false}
+          showStatus={false}
+          infiniteLoop={true}
+          autoPlay={true}
+          interval={5000}
+          className="rounded-xl shadow-xl overflow-hidden" // Estilos para el contenedor principal del carrusel
+        >
+          {images.map((image, index) => (
+            // Contenedor de la diapositiva: le damos una altura fija o máxima.
+            // Usaremos h-[400px] para una altura fija de 400px.
+            // Tailwind CSS: h-[400px] -> height: 400px;
+            // Podrías usar max-h-[400px] si quieres que sea flexible hasta 400px,
+            // pero para que object-cover funcione bien, una altura fija en el contenedor es más predecible.
+            <div key={index} className="h-[400px]"> {/* Contenedor de cada slide con altura fija */}
+              <img
+                src={image.src}
+                alt={image.alt}
+                // w-full: la imagen ocupa todo el ancho del contenedor.
+                // h-full: la imagen ocupa toda la altura del contenedor (que es 400px).
+                // object-cover: la imagen se redimensiona para mantener su relación de aspecto
+                //               mientras llena las dimensiones del elemento; si la relación de aspecto
+                //               del objeto no coincide con la de su caja, entonces el objeto
+                //               será recortado para ajustarse.
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  // Ajusta el placeholder para que también intente llenar el espacio, si es posible,
+                  // o considera un placeholder con una relación de aspecto más adaptable.
+                  // El texto podría ser difícil de leer si la imagen del placeholder es muy pequeña o grande.
+                  e.target.src = `https://placehold.co/800x400/E0F2FE/0284C7?text=${encodeURIComponent(image.alt || 'Imagen Padel No Disponible')}`;
+                }}
+              />
+              {image.legend && (
+                <p className="legend">{image.legend}</p> // Estilos de la leyenda son manejados por react-responsive-carousel
+              )}
+            </div>
+          ))}
+        </Carousel>
+            </div>
+            <div className="text-lg text-gray-700 space-y-4">
+              <p>
+                NextLevel Padel nace para transformar la experiencia del pádel amateur en Bahía Blanca. Entendemos la pasión por este deporte y la necesidad de una estructura que permita a los jugadores competir, mejorar y conectarse.
+              </p>
+              <p className="font-semibold text-sky-700">
+                Nuestro objetivo es claro:
+              </p>
+              <ul className="list-none space-y-2">
+                <li className="flex items-start"><CheckCircle size={24} className="inline-block mr-2 text-yellow-500 flex-shrink-0 mt-1" /><span>Ofrecer un sistema de <span className="font-bold">ranking oficial y transparente</span> desde 1ra hasta 7ma categoría.</span></li>
+                <li className="flex items-start"><CheckCircle size={24} className="inline-block mr-2 text-yellow-500 flex-shrink-0 mt-1" /><span>Facilitar <span className="font-bold">partidos competitivos y equilibrados</span> con jugadores de tu mismo nivel.</span></li>
+                <li className="flex items-start"><CheckCircle size={24} className="inline-block mr-2 text-yellow-500 flex-shrink-0 mt-1" /><span>Brindar <span className="font-bold">flexibilidad total</span> para que organices tus partidos cuándo y dónde prefieras.</span></li>
+                <li className="flex items-start"><CheckCircle size={24} className="inline-block mr-2 text-yellow-500 flex-shrink-0 mt-1" /><span>Crear una <span className="font-bold">comunidad activa y motivada</span> de apasionados por el pádel.</span></li>
+              </ul>
+              <p>
+                Olvídate de la desorganización. Con NextLevel Padel, cada partido cuenta y tu progreso es visible.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
+      </section>
+    );
+  };
 
   const HowItWorks = () => (
     <section id="como-funciona" className="py-16 md:py-24 bg-sky-50">
