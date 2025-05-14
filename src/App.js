@@ -2,6 +2,9 @@ import React, { useState, useEffect, useMemo } from 'react';
 // Asegúrate de tener lucide-react instalado: npm install lucide-react
 import ImgComunidad from './assets/comunidad.webp';
 import PuntosFondo from './assets/PuntosFondo.jpg'; // <<--- 1. IMPORTA TU IMAGEN AQUÍ
+import Logo from './assets/Logo.png';
+
+
 
 import Competitivo from './assets/Competitivo.jpg';
 import {
@@ -112,9 +115,9 @@ const App = () => {
     <section id="home" className="bg-gradient-to-br from-sky-600 to-blue-700 text-white py-20 md:py-32 min-h-screen flex flex-col justify-center items-center">
       <div className="container mx-auto text-center px-4">
         <img
-          src="https://placehold.co/150x150/FFFFFF/facc15?text=NLP&font=raleway" // Usando amber-400 para el color de texto
+          src={Logo}// Usando amber-400 para el color de texto
           alt="Logo NextLevel Padel"
-          className="mx-auto mb-8 rounded-full shadow-xl w-32 h-32 md:w-40 md:h-40 border-4 border-yellow-400" // Usando yellow-400
+          className="mx-auto mb-8 md:w-40 md:h-45 " // Usando yellow-400
         />
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
           Bienvenido a <span className="text-yellow-400">NextLevel Padel</span> {/* Usando yellow-400 */}
