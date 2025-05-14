@@ -134,7 +134,7 @@ const App = () => {
           href="#registro"
           className="bg-yellow-400 hover:bg-amber-500 text-sky-800 font-bold py-3 px-8 rounded-lg text-lg transition-transform transform hover:scale-105 shadow-lg"
         >
-          Regístrate y Compite
+          Regístrate y Competi
         </a>
       </div>
 
