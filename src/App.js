@@ -116,14 +116,13 @@ const App = () => {
 
   const Hero = () => (
     <section id="home" className=" text-white py-20 md:py-32 min-h-screen flex flex-col justify-center items-center  " style={{ backgroundImage: `url(${PuntosFondo})` }}>
-      <div className=' bg-white
-       rounded-lg bg-opacity-20 h-full'>
+  
       <div className="container mx-auto text-center px-4 pad  ">
         <img
           src={Logo}// Usando amber-400 para el color de texto
           alt="Logo NextLevel Padel"
-          className="mx-auto mb-8 md:w-40 md:h-45 " // Usando yellow-400
-          
+          className="mx-auto mb-8  " // Usando yellow-400
+           width={200}
         />
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
           Bienvenido a <span className="text-yellow-400">NextLevel Padel</span> {/* Usando yellow-400 */}
@@ -138,7 +137,7 @@ const App = () => {
           Regístrate y Compite
         </a>
       </div>
-       </div>
+
     </section>
   );
 
@@ -348,10 +347,11 @@ const App = () => {
   const Footer = () => (
     <footer className="bg-sky-800 text-sky-100 py-12">
       <div className="container mx-auto text-center px-4">
-        <img
-            src="https://placehold.co/100x100/FFFFFF/facc15?text=NLP&font=raleway" // Usando amber-400
-            alt="Logo NextLevel Padel"
-            className="mx-auto mb-4 rounded-full w-20 h-20 border-2 border-yellow-400" // Usando yellow-400
+      <img
+          src={Logo}// Usando amber-400 para el color de texto
+          alt="Logo NextLevel Padel"
+          className="mx-auto mb-8 md:w-40 md:h-45 " // Usando yellow-400
+          width={100}
         />
         <p className="mb-2 text-lg font-semibold">NextLevel Padel</p>
         <p className="text-sm mb-4">Llevando tu juego al siguiente nivel en Bahía Blanca.</p>
