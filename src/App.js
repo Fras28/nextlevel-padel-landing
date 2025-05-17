@@ -548,14 +548,14 @@ const App = () => {
                 to="/crear-cuenta" 
                 className="bg-sky-700 hover:bg-sky-800 text-white font-bold py-3 px-8 sm:py-4 sm:px-10 rounded-lg text-lg sm:text-xl transition-transform transform hover:scale-105 shadow-xl inline-flex items-center justify-center w-full sm:w-auto"
             >
-                Crear Cuenta Manualmente <LogIn size={22} className="inline ml-2" />
+                Crea tu Cuenta <LogIn size={22} className="inline ml-2" />
             </Link>
-            <button
+            {/* <button
                 className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 sm:py-4 sm:px-10 rounded-lg text-lg sm:text-xl transition-transform transform hover:scale-105 shadow-xl inline-flex items-center justify-center w-full sm:w-auto"
                 onClick={handleGoogleRegistration}
             >
                 Regístrate con Google <ArrowRightCircle size={22} className="inline ml-2" />
-            </button>
+            </button> */}
           </div>
         </div>
       </section>
@@ -672,7 +672,7 @@ const App = () => {
       <main className="bg-gray-50">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/connect/google/redirect" element={<GoogleAuthCallback onLogin={handleLogin} />} />
+          {/* <Route path="/connect/google/redirect" element={<GoogleAuthCallback onLogin={handleLogin} />} /> */}
           <Route path="/perfil" element={<ProfilePage />} />
           <Route path="/login-error" element={<LoginErrorPage />} />
           <Route path="/crear-cuenta" element={<RegisterFormPage />} />
